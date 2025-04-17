@@ -1,1 +1,25 @@
-<div>Hello World!</div>
+<div class="container mt-4">
+    <h1 class="mb-4">Contact Manager</h1>
+  
+    <div class="mb-4 d-flex gap-2">
+      <button class="btn btn-outline-success" routerLink="">List Contact</button>
+      <button class="btn btn-success" routerLink="/add">Add Contact</button>
+    </div>
+  
+    @if (!isAddingContact){
+    <div>
+      <h2>List of Contacts</h2>
+      <div class="contacts">
+        @for (contact of contacts; track contact; let i = $index) {
+          <app-contact-card 
+            [contact]="contact" 
+            [index]="i">
+          </app-contact-card>
+        }
+      </div>
+    </div>
+}
+  
+    <router-outlet></router-outlet>
+  </div>
+  
